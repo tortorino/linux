@@ -161,9 +161,9 @@
  * Before enabling the camera you need to disable
  * usdhc2 node.
  */
-//&ov5640 {
-//	status = "okay";
-//};
+&ov5640 {
+	status = "okay";
+};
 
 /*
  * To use CSI camera with suspend/resume, uncomment ext_3v3
@@ -237,18 +237,18 @@
 // };
 
 /* USDHC2 (eMMC, conflicts with microSD) */
-//&usdhc2 {
-//	pinctrl-assert-gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
-//	non-removable;
-//	/*
-//	 * Comment these two lines for 4-bit data bus or leave uncommented
-//	 * for 8-bit data bus
-//	 */
-//	pinctrl-0 = <&pinctrl_usdhc2_8databits>;
-//	bus-width = <8>;
-//
-//	status = "okay";
-//};
+&usdhc2 {
+	pinctrl-assert-gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
+	non-removable;
+	/*
+	 * Comment these two lines for 4-bit data bus or leave uncommented
+	 * for 8-bit data bus
+	 */
+	pinctrl-0 = <&pinctrl_usdhc2_8databits>;
+	bus-width = <8>;
+
+	status = "disabled";
+};
 
 /* Pin mux configuration */
 &iomuxc {
