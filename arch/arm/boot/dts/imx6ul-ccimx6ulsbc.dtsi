@@ -201,24 +201,7 @@
 		status = "disabled";
 	};
 
-	ov5642: ov5642@3c {
-		compatible = "ov564x";
-		reg = <0x3c>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_csi>;
-		clocks = <&clks IMX6UL_CLK_CSI>;
-		clock-names = "csi_mclk";
-		csi_id = <0>;
-		mclk = <24000000>;
-		mclk_source = <0>;
-		status = "disabled";
-		digi,defer-probe;
-		port {
-			ov5642_ep: endpoint {
-				remote-endpoint = <&csi_ep1>;
-			};
-		};
-	};
+	
 
 	ov5640: ov5640@3c {
 		compatible = "ov5640";
