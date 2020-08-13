@@ -81,6 +81,14 @@
 		};
 
 		csi_ep1: endpoint@1 {
+			reg = <1>;		/* Local endpoint # */
+			bus-width = <8>;	/* Used data lines */
+			data-shift = <2>;	/* Lines 9:2 are used */
+			bus-type = <6>;
+			/* If hsync-active/vsync-active are missing,
+			  embedded BT.656 sync is used */
+			data-active = <1>;	/* Active high */
+			pclk-sample = <1>;	/* Rising */
 			remote-endpoint = <&ov5642_ep>;
 		};
 	};
