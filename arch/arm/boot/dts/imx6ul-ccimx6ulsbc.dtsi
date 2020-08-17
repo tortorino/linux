@@ -89,7 +89,6 @@
 			  embedded BT.656 sync is used */
 			data-active = <1>;	/* Active high */
 			pclk-sample = <1>;	/* Rising */
-			remote-endpoint = <&ov5642_ep>;
 		};
 	};
 };
