@@ -42,6 +42,11 @@
  */
 &csi {
 	status = "okay";
+	port {
+		csi_ep1: endpoint {
+			remote-endpoint = <&ov5640_ep>;
+		};
+	};
 };
 
 /* ECSPI1 (as master) */
@@ -161,24 +166,7 @@
  * Before enabling the camera you need to disable
  * usdhc2 node.
  */
-ov5642: ov5642@3c {
-		compatible = "ov564x";
-		reg = <0x3c>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_csi>;
-		clocks = <&clks IMX6UL_CLK_CSI>;
-		clock-names = "csi_mclk";
-		csi_id = <0>;
-		mclk = <24000000>;
-		mclk_source = <0>;
-		status = "disabled";
-		digi,defer-probe;
-		port {
-			ov5642_ep: endpoint {
-				remote-endpoint = <&csi_ep1>;
-			};
-		};
-	};
+
 
 /*
  * To use CSI camera with suspend/resume, uncomment ext_3v3
@@ -221,7 +209,9 @@ ov5642: ov5642@3c {
 	pinctrl-0 = <&pinctrl_uart2_4wires>;
 	uart-has-rtscts;
 	status = "okay";
+	
 };
+
 
 /* UART3 */
 &uart3 {
