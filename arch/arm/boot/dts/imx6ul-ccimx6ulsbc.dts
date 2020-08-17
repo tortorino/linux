@@ -43,7 +43,7 @@
 &csi {
 	status = "okay";
 	port {
-		csi_ep1: endpoint {
+		csi_ep1: endpoint@1 {
 			remote-endpoint = <&ov5640_ep>;
 		};
 	};
